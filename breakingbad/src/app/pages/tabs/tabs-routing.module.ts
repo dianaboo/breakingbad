@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TabsPage } from './tabs.page';const routes: Routes = [
-  
+import { TabsPage } from './tabs.page';
+
+const routes: Routes = [
+
     //update routes for the elements in the menu tab
     {
         path: 'tabs',
@@ -57,12 +59,13 @@ import { TabsPage } from './tabs.page';const routes: Routes = [
             }
         ]
     },
+
     {
         path: '',
         redirectTo: '/tabs/episodes',
         pathMatch: 'full'
     }
-];@NgModule({
+]; @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
