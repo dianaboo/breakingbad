@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { CharactersPage } from './characters.page';
 
 const routes: Routes = [
@@ -15,3 +14,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class CharactersPageRoutingModule {}
+
+

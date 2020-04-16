@@ -10,11 +10,22 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-
 getEpisodes(){
     return this.http.get('https://www.breakingbadapi.com/api/episodes')
 }
 getEpisode(id){
     return this.http.get('https://www.breakingbadapi.com/api/episodes/${id}')
+}
 
-}}
+    getCharacters(){
+    return this.http.get('https://www.breakingbadapi.com/api/characters')
+}
+
+getCharacter(id){
+    return this.http.get('https://www.breakingbadapi.com/api/characters/${id}')
+
+}
+
+  
+
+}
