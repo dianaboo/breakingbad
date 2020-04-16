@@ -25,7 +25,14 @@ getCharacter(id){
     return this.http.get('https://www.breakingbadapi.com/api/characters/${id}')
 
 }
-
   
+    getQuotes(){
+    return this.http.get('https://www.breakingbadapi.com/api/quotes')
+}
+
+getQuote(id){
+    return this.http.get('https://www.breakingbadapi.com/api/quotes/${id}')
+
+}
 
 }
