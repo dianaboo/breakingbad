@@ -35,4 +35,10 @@ getQuote(id){
 
 }
 
+  getDeaths(){
+    return this.http.get('https://www.breakingbadapi.com/api/deaths')
+}
+
+
+
 }
