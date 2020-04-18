@@ -16,10 +16,11 @@ export class DeathsPage implements OnInit {
 
   ngOnInit() {
   this.deaths = this.api.getDeaths();
-  this.deaths.subscribe(data => {console.log('my data' , data);
-    });
+  //this.deaths.subscribe(data => {console.log('my data' , data);
+ //   });
 
 }
-
   
     }
+
+    

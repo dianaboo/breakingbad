@@ -11,32 +11,32 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 getEpisodes(){
-    return this.http.get('https://www.breakingbadapi.com/api/episodes')
+    return this.http.get(`https://www.breakingbadapi.com/api/episodes`);
 }
 getEpisode(id){
-    return this.http.get('https://www.breakingbadapi.com/api/episodes/${id}')
+    return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`);
 }
 
     getCharacters(){
-    return this.http.get('https://www.breakingbadapi.com/api/characters')
+    return this.http.get(`https://www.breakingbadapi.com/api/characters`);
 }
 
 getCharacter(id){
-    return this.http.get(`https://www.breakingbadapi.com/api/characters/?${id}`)
+    return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`);
 
 }
   
     getQuotes(){
-    return this.http.get('https://www.breakingbadapi.com/api/quotes')
+    return this.http.get(`https://www.breakingbadapi.com/api/quotes`);
 }
 
 getQuote(id){
-    return this.http.get('https://www.breakingbadapi.com/api/quotes/${id}')
+    return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`);
 
 }
 
   getDeaths(){
-    return this.http.get('https://www.breakingbadapi.com/api/deaths')
+    return this.http.get(`https://www.breakingbadapi.com/api/deaths`)
 }
 
 

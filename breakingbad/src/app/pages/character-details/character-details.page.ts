@@ -12,24 +12,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CharacterDetailsPage
     implements OnInit {
-
     character: any;
     characterId = null;
-
     constructor(private activatedRoute: ActivatedRoute,
-        private api: ApiService, private http: HttpClient) { }
-
-
-    ngOnInit() {
-   // let id = this.activatedRoute.snapshot.paramMap.get('id');
-    //this.http.get(`https://www.breakingbadapi.com/api/characteres/${id}').subscribe(res => {
-	
-      //this.character = res;
-	
-//    });
-        let id = this.activatedRoute.snapshot.paramMap.get('id');
-       this.api.getCharacter(id).subscribe(res => {
-         this.character = res;
-       });
-    }
+        private api: ApiService) { } ngOnInit() {
+            this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
+            this.api.getCharacter(this.characterId).subscribe(res => {
+                this.character = res[0];
+                console.log(JSON.stringify(this.character.char_id));
+            });
+        }
 }

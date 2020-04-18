@@ -16,14 +16,16 @@ export class QuotesPage implements OnInit {
 
   ngOnInit() {
   this.quotes = this.api.getQuotes();
-  this.quotes.subscribe(data => {console.log('my data' , data);
-    });
+  //this.quotes.subscribe(data => {console.log('my data' , data);
+  //  });
 
 }
 
     openDetails(quote){
         let quoteId = quote.quote_id;
-    this.router.navigateByUrl('/tabs/quotes/${quoteId}');
+    this.router.navigateByUrl(`/tabs/quotes/${quoteId}`);
 
     }
     }
+
+  

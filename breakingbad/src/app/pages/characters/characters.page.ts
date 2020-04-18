@@ -16,14 +16,16 @@ characterId: Observable<any>
     ngOnInit() {
 
         this.characters = this.api.getCharacters();
-     this.characters.subscribe(data => {console.log('my data' , data);
-    });
+    // this.characters.subscribe(data => {console.log('my data' , data);
+  //  });
 }
 
     openDetails(character){
         let characterId = character.char_id;
-    this.router.navigateByUrl('/tabs/characters/${characterId}');
+    this.router.navigateByUrl(`/tabs/characters/${characterId}`);
     // this.characterId.subscribe(data => {console.log('my data' , data);
 
   //  });
 }}
+  
+
