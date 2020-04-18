@@ -10,16 +10,19 @@ import { HttpClient } from '@angular/common/http';
     templateUrl: './character-details.page.html',
     styleUrls: ['./character-details.page.scss'],
 })
-export class CharacterDetailsPage
-    implements OnInit {
+
+export class CharacterDetailsPage implements OnInit {
     character: any;
     characterId = null;
-    constructor(private activatedRoute: ActivatedRoute,
-        private api: ApiService) { } ngOnInit() {
-            this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
-            this.api.getCharacter(this.characterId).subscribe(res => {
-                this.character = res[0];
-                console.log(JSON.stringify(this.character.char_id));
-            });
-        }
+    
+     constructor(private activatedRoute:
+        ActivatedRoute, private api: ApiService) { }
+
+    ngOnInit() {
+        this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
+        this.api.getCharacter(this.characterId).subscribe(res => {
+            this.character = res[0];
+            console.log(JSON.stringify(this.character.char_id));
+        });
+    }
 }

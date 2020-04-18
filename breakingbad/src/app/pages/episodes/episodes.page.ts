@@ -12,26 +12,21 @@ import { HttpClient } from '@angular/common/http';
 export class EpisodesPage implements OnInit {
 
     episodes: Observable<any>;
+ characterId: Observable<any>
 
     constructor(private router: Router, 
         private api: ApiService, private http: HttpClient) { }
 
     ngOnInit() {
-        this.episodes= this.http.get(`https://www.breakingbadapi.com/api/episodes`);
-      //  this.episodes = this.api.getEpisodes();
+       this.episodes = this.api.getEpisodes();
        //this.episodes.subscribe(data => {console.log('my data' , data);
     //});
     }
 
     openDetails(episode){
-//let split = episode.url.split(`/`);
-  //  let episodeId = split[split.length-2];
          let episodeId = episode.episode_id;
     this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
 	
   }}
       
       
-        // let episodeId = episode.episode_id;
-    //this.router.navigateByUrl('/tabs/episodes/${episodeId}');
-   // }

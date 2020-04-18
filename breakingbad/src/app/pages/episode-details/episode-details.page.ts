@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,18 +13,19 @@ import { HttpClient } from '@angular/common/http';
 export class EpisodeDetailsPage implements OnInit {
 
     episode: any;
+    episodeId = null;
 
     constructor(private activatedRoute: ActivatedRoute,
-        private http: HttpClient) { }
+     private api: ApiService) { }
 
 
-    ngOnInit() {
-
-        let id = this.activatedRoute.snapshot.paramMap.get('id');
-        this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`,
-            { responseType: 'text' }).subscribe(res => {
-                this.episode = res;
-
-            });
+   ngOnInit() {
+        this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
+        this.api.getEpisode(this.episodeId).subscribe(res => {
+            this.episode = res[0];
+            console.log(JSON.stringify(this.episode.episode_id));
+        });
     }
 }
+
+   

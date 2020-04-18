@@ -2,35 +2,54 @@
 	<ion-toolbar color="primary">
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/characters">
-            </ion-back-button>
+			</ion-back-button>
 		</ion-buttons>
 		<ion-title>Character Details</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-		<ion-card >
-          <ion-card-content>
-      	
+
+	<ion-list>
+		<ion-item *ngIf="character">
+			<ion-img [src]="character.src"></ion-img>
+			<img [src]="character.src">
+			<ion-label>{{character.name}}</ion-label>
+		</ion-item>
+	</ion-list>
 
 
 
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-          </ion-card-content>
-		</ion-card>
+	<ion-card *ngIf="character">
+		<ion-card-content>
+			<ion-list>
+				<ion-item>
+					<ion-label> Name </ion-label>
+					{{ character.name }}
+				</ion-item>
+				<ion-item>
+					<ion-label> Birthday </ion-label>
+					{{ character.birthday }}
+				</ion-item>
+				<ion-item>
+					<ion-label> Occupation </ion-label>
+					{{ character.occupation }}
+				</ion-item>
 
+				<ion-item>
+					<ion-label> Status </ion-label>
+					{{ character.status }}
+
+				</ion-item>
+				<ion-item>
+					<ion-label> Nickname </ion-label>
+					{{ character.nickname }}
+				</ion-item>
+				<ion-item>
+					<ion-label> Appareance (Seasons) </ion-label>
+					{{ character.appearance }}
+				</ion-item>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
-
-
-        	
-	
-	
-	
-
-
-
-
-
-
-
