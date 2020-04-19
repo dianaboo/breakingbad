@@ -1,6 +1,8 @@
 <ion-header>
 	<ion-toolbar color="primary">
     <ion-title>Deaths</ion-title>
+    
+      <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

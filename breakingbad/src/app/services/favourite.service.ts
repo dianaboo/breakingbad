@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-const STORAGE_KEY = 'favouriteEpisodes';
+const STORAGE_KEYEpi = 'favouriteEpisodes';
+const STORAGE_KEYChar = 'favouriteCharacteres';
+
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +12,7 @@ export class FavouriteService {
     constructor(private storage: Storage) { }
 
     getAllFavouriteEpisodes() {
-        return this.storage.get(STORAGE_KEY);
+        return this.storage.get(STORAGE_KEYEpi);
     }
 
     isFavouriteEp(episodeId) {
@@ -23,9 +25,9 @@ export class FavouriteService {
         return this.getAllFavouriteEpisodes().then(result => {
             if (result) {
                 result.push(episodeId);
-                return this.storage.set(STORAGE_KEY, result);
+                return this.storage.set(STORAGE_KEYEpi, result);
             } else {
-                return this.storage.set(STORAGE_KEY, [episodeId]);
+                return this.storage.set(STORAGE_KEYEpi, [episodeId]);
             }
         });
     }
@@ -35,14 +37,14 @@ export class FavouriteService {
             if (result) {
                 var index = result.indexOf(episodeId);
                 result.splice(index, 1);
-                return this.storage.set(STORAGE_KEY, result);
+                return this.storage.set(STORAGE_KEYEpi, result);
             }
 
         });
     }
 
     getAllFavouriteCharacteres() {
-        return this.storage.get(STORAGE_KEY);
+        return this.storage.get(STORAGE_KEYChar);
     }
 
     isFavouriteChar(characterId) {
@@ -55,9 +57,9 @@ export class FavouriteService {
         return this.getAllFavouriteCharacteres().then(result => {
             if (result) {
                 result.push(characterId);
-                return this.storage.set(STORAGE_KEY, result);
+                return this.storage.set(STORAGE_KEYChar, result);
             } else {
-                return this.storage.set(STORAGE_KEY, [characterId]);
+                return this.storage.set(STORAGE_KEYChar, [characterId]);
             }
         });
     }
@@ -67,10 +69,11 @@ export class FavouriteService {
             if (result) {
                 var index = result.indexOf(characterId);
                 result.splice(index, 1);
-                return this.storage.set(STORAGE_KEY, result);
+                return this.storage.set(STORAGE_KEYChar, result);
             }
 
         });
 
-    }}
+    }
+}
 
