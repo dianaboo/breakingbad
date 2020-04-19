@@ -3,8 +3,16 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/characters">
 			</ion-back-button>
-		</ion-buttons>
+	
 		<ion-title>Character Details</ion-title>
+
+          <ion-button (click)="unfavouriteCharacter()" *ngIf="isFavourite">
+      <ion-icon name="star" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button (click)="favouriteCharacter()" *ngIf="!isFavourite">
+      <ion-icon name="star-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+	</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 

@@ -13,7 +13,7 @@ export class FavouriteService {
         return this.storage.get(STORAGE_KEY);
     }
 
-    isFavourite(episodeId) {
+    isFavouriteEp(episodeId) {
         return this.getAllFavouriteEpisodes().then(result => {
             return result && result.indexOf(episodeId) !== -1;
         });
@@ -39,9 +39,38 @@ export class FavouriteService {
             }
 
         });
-
     }
 
+    getAllFavouriteCharacteres() {
+        return this.storage.get(STORAGE_KEY);
+    }
 
+    isFavouriteChar(characterId) {
+        return this.getAllFavouriteCharacteres().then(result => {
+            return result && result.indexOf(characterId) !== -1;
+        });
+    }
 
-}
+    favouriteCharacter(characterId) {
+        return this.getAllFavouriteCharacteres().then(result => {
+            if (result) {
+                result.push(characterId);
+                return this.storage.set(STORAGE_KEY, result);
+            } else {
+                return this.storage.set(STORAGE_KEY, [characterId]);
+            }
+        });
+    }
+
+    unfavouriteCharacter(characterId) {
+        return this.getAllFavouriteCharacteres().then(result => {
+            if (result) {
+                var index = result.indexOf(characterId);
+                result.splice(index, 1);
+                return this.storage.set(STORAGE_KEY, result);
+            }
+
+        });
+
+    }}
+
