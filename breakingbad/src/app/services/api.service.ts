@@ -8,26 +8,36 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-url = `https://www.breakingbadapi.com/api/episodes`;
 
-  constructor(private http: HttpClient) { }
+characters = [];
 
-searchData(title: string): Observable<any> {
-    return this.http.get(`${this.url}?s=${encodeURI(title)}`).pipe(
-      map(results => results['Search']));
+  constructor(private http: HttpClient) {
+//this.loadUsers();  
+}
 
-    }
+loadUsers(){
+   return this.http.get(`https://www.breakingbadapi.com/api/characters?limit=20`)
+    //.subscribe(
+      //  res => { console.log(res);
+          //  this.characters = this.characters.concat(res['results']);
+           
+   // });
+}
 
 getEpisodes(){
     return this.http.get(`https://www.breakingbadapi.com/api/episodes`);
 }
-getEpisode(id){
+
+    getEpisode(id){
     return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`);
 }
 
-    getCharacters(){
-    return this.http.get(`https://www.breakingbadapi.com/api/characters`);
+   getCharacters(){
+   return this.http.get(`https://www.breakingbadapi.com/api/characters`);
 }
+
+
+
 
 getCharacter(id){
     return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`);
